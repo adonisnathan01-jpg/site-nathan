@@ -70,3 +70,130 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>HACKED</title>
+    <style>
+        body { 
+            background-color: black; 
+            margin: 0; 
+            overflow: hidden; 
+            font-family: 'Courier New', sans-serif;
+        }
+
+        /* Conteneur pour le texte qui clignote */
+        h1 {
+            position: absolute; 
+            width: 100%; 
+            top: 35%;
+            font-size: 50px; 
+            color: #ff0000; 
+            text-align: center;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+            animation: clignoter 0.5s infinite;
+            z-index: 10;
+        }
+
+        /* L'image de hacker au centre qui tremble */
+        img {
+            position: fixed; 
+            top: 50%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw; 
+            max-width: 500px;
+            object-fit: contain;
+            animation: trembler 0.1s infinite;
+            z-index: 5;
+            border: 2px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        /* Le fond Matrix (Canvas) */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            opacity: 0.4; /* Permet de voir à travers pour ne pas cacher le reste */
+        }
+
+        @keyframes clignoter { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+        
+        @keyframes trembler {
+            0% { transform: translate(-50%, -50%) translate(0, 0); }
+            20% { transform: translate(-50%, -50%) translate(-3px, 3px); }
+            40% { transform: translate(-50%, -50%) translate(-3px, -3px); }
+            60% { transform: translate(-50%, -50%) translate(3px, 3px); }
+            80% { transform: translate(-50%, -50%) translate(3px, -3px); }
+            100% { transform: translate(-50%, -50%) translate(0, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+
+    <h1>KOHZA THE HACKERMAN</h1>
+    
+    <!-- Ton image de hacker -->
+    <img src="1000741025.png" alt="Hack">
+
+    <script>
+        // --- CODE DE L'EFFET MATRIX ---
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        // On adapte le canvas à la taille de l'écran
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Caractères à faire défiler (ici du binaire 0 et 1)
+        const alphabet = "01";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const rainDrops = [];
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0'; // Vert Matrix
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        }
+
+        // Lance l'animation Matrix
+        setInterval(drawMatrix, 30);
+
+        // --- CODE DE LA VIBRATION ---
+        function faireVibrer() {
+            if (navigator.vibrate) {
+                navigator.vibrate(500);
+            }
+        }
+
+        // Active la vibration au premier clic/toucher
+        window.addEventListener('click', () => { setInterval(faireVibrer, 1000); });
+        window.addEventListener('touchstart', () => { setInterval(faireVibrer, 1000); });
+    </script>
+
+</body>
+</html>
