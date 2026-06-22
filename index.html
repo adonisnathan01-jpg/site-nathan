@@ -8,27 +8,16 @@
 <body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif;">
 
 
-    <h1 style="font-size: 50px; color: red; text-align: center; font-family: sans-serif; margin-top: 50px;">KOHZA HACKE VOUS TOUS</h1>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Site de Nathan</title>
+    <title>HACKED</title>
     <style>
-        body {
-            background-color: black;
-            margin: 0;
-            overflow: hidden;
-        }
+        body { background-color: black; margin: 0; overflow: hidden; }
 
-        /* Animation 1 : Le texte qui clignote */
-        @keyframes clignoter {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        /* Animation 2 : L'image qui tremble (effet glitch/hack) */
+        @keyframes clignoter { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+        
         @keyframes trembler {
             0% { transform: translate(0, 0); }
             20% { transform: translate(-5px, 5px); }
@@ -39,34 +28,45 @@
         }
 
         h1 {
-            font-size: 60px;
-            color: red;
-            text-align: center;
+            position: absolute; width: 100%; top: 20%;
+            font-size: 50px; color: red; text-align: center;
             font-family: 'Courier New', sans-serif;
-            margin-top: 50px;
-            /* On applique le clignotement ici (toutes les 0.8 secondes) */
-            animation: clignoter 0.8s infinite; 
+            animation: clignoter 0.5s infinite;
+            z-index: 10;
         }
 
         img {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            position: fixed; top: 0; left: 0;
+            width: 100vw; height: 100vh;
             object-fit: cover;
-            z-index: -1; /* Met l'image en arrière-plan sous le texte */
-            /* On applique le tremblement ici (très rapide) */
-            animation: trembler 0.2s infinite; 
+            animation: trembler 0.1s infinite;
         }
     </style>
 </head>
 <body>
 
-    <h1>Nathan vous hacke TOUS</h1>
+    <h1>KOHZA THE HACKERMAN</h1>
     
-    <!-- Pense à bien remplacer le nom de l'image ci-dessous par la tienne -->
-    <img src="nom_de_ton_image.jpg" alt="Hack">
+    <img src=IMG-20260622-WA0076.jpg alt="Hack">
+
+    <script>
+        // Cette fonction fait vibrer le téléphone en continu toutes les secondes
+        function faireVibrer() {
+            if (navigator.vibrate) {
+                // Fait vibrer pendant 500ms (demi-seconde)
+                navigator.vibrate(500);
+            }
+        }
+
+        // Active la vibration dès que l'utilisateur touche l'écran
+        window.addEventListener('click', () => {
+            setInterval(faireVibrer, 1000);
+        });
+        
+        window.addEventListener('touchstart', () => {
+            setInterval(faireVibrer, 1000);
+        });
+    </script>
 
 </body>
 </html>
