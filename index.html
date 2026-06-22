@@ -9,3 +9,64 @@
 
 
     <h1 style="font-size: 50px; color: red; text-align: center; font-family: sans-serif; margin-top: 50px;">KOHZA HACKE VOUS TOUS</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Site de Nathan</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Animation 1 : Le texte qui clignote */
+        @keyframes clignoter {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Animation 2 : L'image qui tremble (effet glitch/hack) */
+        @keyframes trembler {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(-5px, 5px); }
+            40% { transform: translate(-5px, -5px); }
+            60% { transform: translate(5px, 5px); }
+            80% { transform: translate(5px, -5px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        h1 {
+            font-size: 60px;
+            color: red;
+            text-align: center;
+            font-family: 'Courier New', sans-serif;
+            margin-top: 50px;
+            /* On applique le clignotement ici (toutes les 0.8 secondes) */
+            animation: clignoter 0.8s infinite; 
+        }
+
+        img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1; /* Met l'image en arrière-plan sous le texte */
+            /* On applique le tremblement ici (très rapide) */
+            animation: trembler 0.2s infinite; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Nathan vous hacke TOUS</h1>
+    
+    <!-- Pense à bien remplacer le nom de l'image ci-dessous par la tienne -->
+    <img src="nom_de_ton_image.jpg" alt="Hack">
+
+</body>
+</html>
